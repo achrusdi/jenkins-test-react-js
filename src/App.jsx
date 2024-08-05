@@ -9,6 +9,7 @@ import { Footer, Header } from './components/templating'
 import RandomColor from './components/RandomColor';
 import StopWatch from './components/StopWatch';
 import { useEffect } from 'react';
+import TestForm from './components/forms/TestForm';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -70,28 +71,14 @@ function App() {
       </div> */}
 
       <div className='container mx-auto flex justify-center items-center my-24'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
-          {data.map((item, index) => {
-            return (
-              <CardNext
-                key={index}
-                imgUrl={item.imgUrl}
-                title={item.title}
-                content={item.content}
-              />
-            );
-          })}
-          {/* <CardProfile />
-
-          <CardMusic /> */}
-
-        </div>
         {/* <CardNext/> */}
+
+        <TestForm />
       </div>
 
       <Divider />
 
-      <div className='container mx-auto flex justify-center items-center my-24'>
+      {/* <div className='container mx-auto flex justify-center items-center my-24'>
         <CardProfile
           name="rusdi"
           username="rusdie"
@@ -103,7 +90,7 @@ function App() {
         <RandomColor />
         <Divider />
         <StopWatch />
-      </div>
+      </div> */}
 
 
 
