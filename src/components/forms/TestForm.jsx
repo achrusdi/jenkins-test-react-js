@@ -122,7 +122,7 @@ const TestForm = () => {
     return (
         <div>
             <div className="flex w-full gap-16 flex-col">
-                <form onSubmit={handleOnSubmit}>
+                <form onSubmit={handleOnSubmit} className="flex flex-col gap-4">
                     <Input onChange={handleOnChange} name="name" type="text" label="Username" />
                     <Input onChange={handleOnChange} name="email" type="email" label="Email" />
                     <Input onChange={handleOnChange} name="password" type="password" label="Password" />

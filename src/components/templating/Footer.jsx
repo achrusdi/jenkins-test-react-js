@@ -1,6 +1,6 @@
 const Footer = () => {
-    return (<>
-        <footer className="bg- text-black py-4">
+    return (
+        <footer>
             <div className="container mx-auto flex justify-between items-center">
                 <div>
                     <p className="text-sm">&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
@@ -12,7 +12,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    </>);
+    );
 }
 
 export default Footer;

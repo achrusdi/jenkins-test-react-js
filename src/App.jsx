@@ -10,6 +10,8 @@ import RandomColor from './components/RandomColor';
 import StopWatch from './components/StopWatch';
 import { useEffect } from 'react';
 import TestForm from './components/forms/TestForm';
+import TestForm1 from './components/forms/TestForm1';
+import FormLogin from './components/forms/FormLogin';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -73,10 +75,9 @@ function App() {
       <div className='container mx-auto flex justify-center items-center my-24'>
         {/* <CardNext/> */}
 
-        <TestForm />
+        {/* <TestForm1 /> */}
+        <FormLogin />
       </div>
-
-      <Divider />
 
       {/* <div className='container mx-auto flex justify-center items-center my-24'>
         <CardProfile
