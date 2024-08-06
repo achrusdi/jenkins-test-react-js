@@ -8,13 +8,37 @@ import CardProfile from './components/cards/CardProfile';
 import { Footer, Header } from './components/templating'
 import RandomColor from './components/RandomColor';
 import StopWatch from './components/StopWatch';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TestForm from './components/forms/TestForm';
 import TestForm1 from './components/forms/TestForm1';
 import FormLogin from './components/forms/FormLogin';
+import useLocalStorage from './hooks/useLocalStorage';
+import useSessionStorage from './hooks/useSessionStorage';
+import useCoockies from './hooks/useCoockies';
 
 function App() {
   // const [count, setCount] = useState(0)
+  const [isLoading, isLoadingSet] = useState(true);
+  // const [name, setName, removeName] = useLocalStorage('name');
+  // const [role, setRole, removeRole] = useSessionStorage('role');
+  const [token, setToken, removeToken] = useCoockies('token');
+
+  // setName('Jihn');
+  // console.log(name());
+  // removeName();
+
+  // sessionStorage.setItem('username', 'juhn');
+  // setRole('Juhn');
+  // console.log(username());
+  // removeRole();
+
+  setToken('anunymous');
+  console.log(token());
+  removeToken();
+
+  // const username = window.sessionStorage.getItem('username')
+  // const username = window.sessionStorage.setItem('username', 'huhu');
+  // console.log(username);
 
   const data = [
     {
@@ -50,9 +74,16 @@ function App() {
     console.log("ini theme", newTheme);
   };
 
+  const handleLoading = () => {
+    setTimeout(() => {
+      isLoadingSet(false);
+    }, 2000);
+  }
+
   useEffect(() => {
     // console.log("ini theme", localStorage.getItem('theme'));
     initialTheme();
+    handleLoading();
     // console.log("ini theme", localStorage.getItem('theme'));
   }, []);
 
@@ -76,7 +107,7 @@ function App() {
         {/* <CardNext/> */}
 
         {/* <TestForm1 /> */}
-        <FormLogin />
+        <FormLogin isLoading={isLoading} />
       </div>
 
       {/* <div className='container mx-auto flex justify-center items-center my-24'>
