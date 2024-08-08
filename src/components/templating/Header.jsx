@@ -1,7 +1,10 @@
 import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import ThemeSwitcher from "../ThemeSwitcher";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+
     return (
         <Navbar>
             <NavbarBrand>
@@ -10,18 +13,23 @@ const Header = () => {
             </NavbarBrand>
             <NavbarContent className="sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Features
+                    <Link color="foreground" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+                        Home
                     </Link>
                 </NavbarItem>
                 <NavbarItem isActive>
-                    <Link href="#" aria-current="page">
-                        Customers
+                    <Link onClick={() => navigate('/test')} style={{ cursor: 'pointer' }} aria-current="page">
+                        Test
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Integrations
+                    <Link color="foreground" onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>
+                        About
+                    </Link>
+                </NavbarItem>
+                <NavbarItem>
+                    <Link color="foreground" onClick={() => navigate('/counter')} style={{ cursor: 'pointer' }}>
+                        Counter
                     </Link>
                 </NavbarItem>
             </NavbarContent>
