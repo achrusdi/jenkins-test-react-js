@@ -25,12 +25,10 @@ const ThemeSwitcher = () => {
                 onChange={toggleTheme}
                 size="lg"
             />
-            <NavbarItem>
             <span style={{ marginLeft: '0.5rem' }}>
                 {isDarkMode ? 'Dark Mode' : 'Light Mode'}
             </span>
-            </NavbarItem>
-                
+
         </div>
     );
 }

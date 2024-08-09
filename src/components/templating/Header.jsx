@@ -1,9 +1,19 @@
 import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../contexts/AuthContext";
 
 const Header = () => {
+    const { user, logout, loading } = useAuth();
     const navigate = useNavigate();
+
+    const handleSignout = async () => {
+        try {
+            await logout();
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <Navbar>
@@ -37,16 +47,20 @@ const Header = () => {
                 <NavbarItem>
                     <ThemeSwitcher />
                 </NavbarItem>
-                <NavbarItem className="hidden lg:flex">
-                    <Link href="#">Login</Link>
-                </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="#" variant="flat">
-                        Sign Up
-                    </Button>
+                    {user ? (
+                        <Button as={Link} color="danger" href="#" variant="flat" onClick={handleSignout}>
+                            {loading ? 'Signing out...' : 'Sign Out'}
+                        </Button>
+                    ) : (
+                        <Button as={Link} color="primary" href="#" variant="flat" onClick={() => navigate('/sign-in')}>
+                            Sign In
+                        </Button>
+
+                    )}
                 </NavbarItem>
             </NavbarContent>
-        </Navbar>
+        </Navbar >
     );
 }
 
