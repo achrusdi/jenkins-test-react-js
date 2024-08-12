@@ -6,6 +6,7 @@ import NotFoundPage from './pages/errors/NotFoundPage';
 import AuthMiddleware from './middlewares/AuthMiddleware';
 import SigninPage from './pages/SigninPage';
 import IsLoginMiddleware from './middlewares/IsLoginMiddleware';
+import WishlistPage from './pages/WishlistPage';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/test" element={<TestPage />} />
             <Route exact path="/about" element={<AboutPage />} />
             <Route exact path="/counter" element={<CounterPage />} />
+            <Route exact path="/wishlist" element={<WishlistPage />} />
           </Route>
 
           <Route element={<IsLoginMiddleware />}>

@@ -42,6 +42,11 @@ const Header = () => {
                         Counter
                     </Link>
                 </NavbarItem>
+                <NavbarItem>
+                    <Link color="foreground" onClick={() => navigate('/wishlist')} style={{ cursor: 'pointer' }}>
+                        Wishlist
+                    </Link>
+                </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem>
