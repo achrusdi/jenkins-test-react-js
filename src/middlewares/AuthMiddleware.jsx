@@ -1,25 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { useSelector } from "react-redux";
 
 const AuthMiddleware = () => {
 
-    const fetchUser = async () => {
-        try {
-            const response = await useAuth();
-            const user = response.user;
+    const { token } = useSelector(state => state.auth);
 
-            if (!user) {
-                return <Navigate to={'/sign-in'} />
-            }
-
-        } catch (err) {
-            console.log(err);
-        }
+    if (!token) {
+        return <Navigate to={'/sign-in'} />
     }
-
-    const { user } = useAuth();
-    // const user = JSON.parse(localStorage.getItem('user'));
-
 
     return <Outlet />
 }

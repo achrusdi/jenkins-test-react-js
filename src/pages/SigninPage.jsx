@@ -2,7 +2,7 @@ import FormLogin from "../components/forms/FormLogin";
 
 const SigninPage = () => {
     return (
-        <div className="container mx-auto p-4 flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center h-screen">
             <FormLogin />
         </div>
     );

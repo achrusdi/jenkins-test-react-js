@@ -6,31 +6,18 @@ import NotFoundPage from './pages/errors/NotFoundPage';
 import AuthMiddleware from './middlewares/AuthMiddleware';
 import SigninPage from './pages/SigninPage';
 import IsLoginMiddleware from './middlewares/IsLoginMiddleware';
-import WishlistPage from './pages/WishlistPage';
+import SignupPage from './pages/SignupPage';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const TestPage = lazy(() => import('./pages/TestPage'));
-const CounterPage = lazy(() => import('./pages/CounterPage'));
-
-// const Content = () => {
-//   return (
-//     <Suspense fallback={<div>Loading...</div>}>
-//       <Routes>
-//         <Route exact path="/" element={<HomePage />} />
-//         <Route exact path="/test" element={<TestPage />} />
-//         <Route exact path="/about" element={<AboutPage />} />
-//       </Routes>
-//     </Suspense>
-//   );
-// }
+const CustomersPage = lazy(() => import('./pages/CustomersPage'));
+const InstalmentTypePage = lazy(() => import('./pages/InstalmentTypePage'));
+const LoanTypePage = lazy(() => import('./pages/LoanTypePage'));
 
 function App() {
 
   const location = useLocation();
 
   const routeWithoutHeader = ['/sign-up', '/sign-in'];
-
 
   return (
     <>
@@ -41,14 +28,14 @@ function App() {
 
           <Route element={<AuthMiddleware />}>
             <Route exact path="/home" element={<HomePage />} />
-            <Route exact path="/test" element={<TestPage />} />
-            <Route exact path="/about" element={<AboutPage />} />
-            <Route exact path="/counter" element={<CounterPage />} />
-            <Route exact path="/wishlist" element={<WishlistPage />} />
+            <Route exact path="/customers" element={<CustomersPage />} />
+            <Route exact path="/instalment-type" element={<InstalmentTypePage />} />
+            <Route exact path="/loan-type" element={<LoanTypePage />} />
           </Route>
 
           <Route element={<IsLoginMiddleware />}>
             <Route exact path="/sign-in" element={<SigninPage />} />
+            <Route exact path="/sign-up" element={<SignupPage />} />
           </Route>
 
           {/* <Route exact path="/sign-up" element={<TestForm1 />} /> */}
